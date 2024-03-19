@@ -11,10 +11,12 @@ function App() {
 const [tvShows, setTvShows] = useState([]);
 const [isLoading, setIsLoading] = useState(false);
 const [error,setError] = useState(null);
+const [searchInput, setSearchInput] = useState('');
 
   const searchHandler = (searchInput) => {
-    console.log(searchInput);
+    setSearchInput(searchInput);
     fetchMoviesHandler(searchInput);
+
   }
 
   async function fetchMoviesHandler(searchInput){
@@ -57,10 +59,12 @@ const [error,setError] = useState(null);
     setIsLoading(false);
   }
 
-  let content = <p>No TV Shows Found.</p>
+  let content;
   if(tvShows.length>0){
-    content = <TvShowList tvShows={tvShows} />
+    content = <TvShowList tvShows={tvShows} searchInput={searchInput} />
   }
+  if(tvShows.length===0 && !isLoading && !error){
+    content = <p className='text-white font-medium ml-5 text-xl'>No TV Shows Found.</p>}
   if(error){
     content = <p>{error}</p>
   }

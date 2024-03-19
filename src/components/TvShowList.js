@@ -3,7 +3,11 @@ import './TvShowList.css';
 import TvShowCard from './TvShowCard';
 const TvShowList = (props) => {
   return (
-    <div className='bg-neutral-800 grid-display'>
+    
+    <div>
+      <p className='text-white font-medium ml-5 text-xl'>{`Search Results for: ${props.searchInput}`}</p>
+
+    <div className='bg-neutral-800 grid-display mr-3'>
     {props.tvShows.map((tvShow) => (
         <TvShowCard
         name={tvShow.name}
@@ -12,6 +16,7 @@ const TvShowList = (props) => {
         key={tvShow.id}
         />
     ))}
+    </div>
     </div>
   );
 }
