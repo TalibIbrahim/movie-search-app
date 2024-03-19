@@ -5,8 +5,8 @@ const tvShowCard = (props) => {
     <div className='card'>
      <img src={props.image} alt='poster'/>
      <div className='overlay'>
-        <div className='overlay-title'> {props.name}</div>
-        <div className='overlay-rating'>{props.rating}</div>
+        <div className='overlay-title'> <p>{props.name}</p></div>
+        <div className='overlay-rating'><p>{`Rating: ${props.rating}`}</p></div>
      </div>
     </div>
   );
